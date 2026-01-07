@@ -38,9 +38,10 @@
     const password = document.querySelector('input[type="password"]').value;  
   
     signInWithEmailAndPassword(auth, email, password)  
-      .then(() => {  
-        alert("Login successful ✅");  
-      })  
+       .then(() => {
+  window.location.href = "admin.html";
+})
+     
       .catch(() => {  
         alert("Wrong email or password ❌");  
       });  
