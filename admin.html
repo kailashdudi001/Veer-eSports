@@ -1,55 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Admin Panel</title>
+  <title>Admin Login</title>
 </head>
+
 <body>
 
-  <h1>🔥 Admin Panel 🔥</h1>
+<h2>Admin Login</h2>
 
-  <h3>Add Tournament</h3>
+<input type="email" id="email" placeholder="Email"><br><br>
+<input type="password" id="password" placeholder="Password"><br><br>
+<button onclick="login()">Login</button>
 
-  <input id="title" placeholder="Tournament Name"><br><br>
-  <input id="entry" placeholder="Entry Fee"><br><br>
-  <input id="prize" placeholder="Prize Amount"><br><br>
+<script>
+function login() {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
 
-  <button onclick="addTournament()">Add Tournament</button>
-
-  <p id="msg"></p>
-
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
-    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-database.js";
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyCodS9zHTuf8_QDzPqoXkN_D6eim4dJTA4",
-      authDomain: "veer-esports-app.firebaseapp.com",
-      databaseURL: "https://veer-esports-app-default-rtdb.firebaseio.com",
-      projectId: "veer-esports-app"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const db = getDatabase(app);
-
-    window.addTournament = function () {
-      const title = document.getElementById("title").value;
-      const entry = document.getElementById("entry").value;
-      const prize = document.getElementById("prize").value;
-
-      if (!title || !entry || !prize) {
-        alert("Sab field bharo");
-        return;
-      }
-
-      set(ref(db, "tournaments/" + title), {
-        entryFee: entry,
-        prize: prize,
-        status: "Live"
-      });
-
-      document.getElementById("msg").innerText = "Tournament Added ✅";
-    }
-  </script>
+  if (email === "kailashdudi981@gmail.com" && password === "YOUR_PASSWORD") {
+    alert("Login successful ✅");
+  } else {
+    alert("Wrong login ❌");
+  }
+}
+</script>
 
 </body>
 </html>
