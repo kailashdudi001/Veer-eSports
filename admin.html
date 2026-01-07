@@ -1,12 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Admin Panel</title>
+  <title>Admin Panel - Veer E-Sports</title>
 </head>
 <body>
 
-<h1>Admin Panel</h1>
-<p>Login successful 🎉</p>
+<h1>🔥 Admin Panel 🔥</h1>
+
+<h3>Add Tournament</h3>
+
+<input id="title" placeholder="Tournament Title"><br><br>
+<input id="entry" placeholder="Entry Fee"><br><br>
+<input id="prize" placeholder="Prize Amount"><br><br>
+
+<select id="status">
+  <option value="Live">Live</option>
+  <option value="Upcoming">Upcoming</option>
+</select><br><br>
+
+<button onclick="saveTournament()">Save Tournament</button>
+
+<hr>
+
+<h3>Saved Tournament</h3>
+<p id="output"></p>
+
+<script>
+  function saveTournament() {
+    const data = {
+      title: document.getElementById("title").value,
+      entry: document.getElementById("entry").value,
+      prize: document.getElementById("prize").value,
+      status: document.getElementById("status").value
+    };
+
+    localStorage.setItem("tournament", JSON.stringify(data));
+
+    document.getElementById("output").innerText =
+      "Saved: " + data.title + " | ₹" + data.entry + " | ₹" + data.prize + " | " + data.status;
+  }
+</script>
 
 </body>
 </html>
