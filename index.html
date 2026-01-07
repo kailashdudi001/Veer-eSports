@@ -2,50 +2,30 @@
 <html>
 <head>
   <title>Veer E-Sports</title>
-  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <h1>🔥 Veer E-Sports 🔥</h1>
 
-<div class="box">
-  <h2>User Login</h2>
-  <input type="email" placeholder="Email">
-  <input type="password" placeholder="Password">
-  <button>Login</button>
-</div>
+<h2>Admin Login</h2>
 
-<div class="box">
-  <h2>Live Tournaments</h2>
-  <p>Abhi koi tournament nahi hai</p>
-</div>
-<script type="module">  
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";  
-  import { getAuth, signInWithEmailAndPassword }  
-  from "https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js";  
-  
-  const firebaseConfig = {  
-    apiKey: "AIzaSyCodS9zHTuf8_QDzPqoXkN_D6eim4dJTA4",  
-    authDomain: "veer-esports-app.firebaseapp.com",  
-    projectId: "veer-esports-app"  
-  };  
-  
-  const app = initializeApp(firebaseConfig);  
-  const auth = getAuth(app);  
-  
-  document.querySelector("button").addEventListener("click", () => {  
-    const email = document.querySelector('input[type="email"]').value;  
-    const password = document.querySelector('input[type="password"]').value;  
-  
-    signInWithEmailAndPassword(auth, email, password)  
-       .then(() => {
-  window.location.href = "admin.html";
-})
-     
-      .catch(() => {  
-        alert("Wrong email or password ❌");  
-      });  
-  });  
-    </script>
+<input id="email" placeholder="Email"><br><br>
+<input id="password" type="password" placeholder="Password"><br><br>
+
+<button onclick="login()">Login</button>
+
+<script>
+  function login() {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    if(email === "admin@gmail.com" && password === "123456"){
+      window.location.href = "admin.html";
+    } else {
+      alert("Wrong login");
+    }
+  }
+</script>
+
 </body>
-</html>
+</html> 
